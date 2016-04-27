@@ -24,6 +24,8 @@ func NewEmailAddress(v interface{}) (EmailAddress, error) {
 			return n, ErrInvalidEmailAddress
 		}
 		n.value = t
+	default:
+		return n, ErrInvalidEmailAddress
 	}
 
 	return n, nil

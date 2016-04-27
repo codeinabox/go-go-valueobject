@@ -28,7 +28,14 @@ func ExampleString_EmailAddress() {
 func TestShouldntAcceptInvalidEmailAddress(t *testing.T) {
 	_, err := valueobject.NewEmailAddress("invalid")
 	if err == nil {
-		t.Fatal("We expected an error with A")
+		t.Fatal("We expected an error")
+	}
+}
+
+func TestShouldntAcceptNonStringValue(t *testing.T) {
+	_, err := valueobject.NewEmailAddress(1234)
+	if err == nil {
+		t.Fatal("We expected an error")
 	}
 }
 

@@ -49,6 +49,8 @@ func NewRomanNumeral(v interface{}) (RomanNumeral, error) {
 			return n, ErrNegativeValue
 		}
 		n.value = itoa(uint(t))
+	default:
+		return n, ErrInvalidRomanNumeral
 	}
 
 	return n, nil

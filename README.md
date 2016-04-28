@@ -1,5 +1,7 @@
 # Go Go Value Object!
 
+[![Build Status](https://travis-ci.org/codeinabox/go-go-valueobject.svg?branch=master)](https://travis-ci.org/codeinabox/go-go-valueobject)
+
 Inspired by my interest in domain driven design and [Nicolò Pignatell's value object library for PHP](https://github.com/nicolopignatelli/valueobjects/) I wanted 
 to see if value objects could be implemented in Golang. Currently this is very much WIP with only two value objects: 1) a roman numeral 2) email address
 

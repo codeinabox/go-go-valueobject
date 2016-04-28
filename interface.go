@@ -1,6 +1,8 @@
 package valueobject
 
+import "fmt"
+
 type Value interface {
-	String() string
+	fmt.Stringer
 	Equals(value Value) bool
 }

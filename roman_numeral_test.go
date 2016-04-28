@@ -2,8 +2,9 @@ package valueobject_test
 
 import (
 	"fmt"
-	"github.com/codeinabox/go-go-valueobject"
 	"testing"
+
+	"github.com/codeinabox/go-go-valueobject"
 )
 
 var integerToRomanNumeralTests = []struct {
@@ -38,10 +39,15 @@ func (n NotRomanNumeral) Equals(value valueobject.Value) bool {
 	return false
 }
 
-func ExampleString_RomanNumeral() {
-	numeral, _ := valueobject.NewRomanNumeral(5)
-	fmt.Println(numeral.String())
-	// Output: V
+func ExampleRomanNumeral() {
+	a, _ := valueobject.NewRomanNumeral(5)
+	b, _ := valueobject.NewRomanNumeral("V")
+
+	fmt.Println(a)
+	fmt.Println(a.Equals(b))
+	// Output:
+	// V
+	// true
 }
 
 func TestConvertIntegerToRomanNumeral(t *testing.T) {
@@ -61,14 +67,6 @@ func TestShouldntAcceptInvalidString(t *testing.T) {
 	if err == nil {
 		t.Fatal("We expected an error with A")
 	}
-}
-
-func ExampleEquals_RomanNumeral() {
-	a, _ := valueobject.NewRomanNumeral(5)
-	b, _ := valueobject.NewRomanNumeral("V")
-
-	fmt.Println(a.Equals(b))
-	// Output: true
 }
 
 func TestShouldNotBeEqualIfNotRomanNumeral(t *testing.T) {

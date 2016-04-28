@@ -2,8 +2,9 @@ package valueobject_test
 
 import (
 	"fmt"
-	"github.com/codeinabox/go-go-valueobject"
 	"testing"
+
+	"github.com/codeinabox/go-go-valueobject"
 )
 
 // Create a different type of value object used in Equals() check
@@ -19,10 +20,15 @@ func (n NotEmailAddress) Equals(value valueobject.Value) bool {
 	return false
 }
 
-func ExampleString_EmailAddress() {
-	numeral, _ := valueobject.NewEmailAddress("joe@blogs.com")
-	fmt.Println(numeral.String())
-	// Output: joe@blogs.com
+func ExampleEmailAddress() {
+	a, _ := valueobject.NewEmailAddress("joe@blogs.com")
+	b, _ := valueobject.NewEmailAddress("joe@blogs.com")
+
+	fmt.Println(a)
+	fmt.Println(a.Equals(b))
+	// Output:
+	// joe@blogs.com
+	// true
 }
 
 func TestShouldntAcceptInvalidEmailAddress(t *testing.T) {
@@ -39,14 +45,6 @@ func TestShouldntAcceptNonStringValue(t *testing.T) {
 	}
 }
 
-func ExampleEquals_EmailAddress() {
-	a, _ := valueobject.NewEmailAddress("joe@blogs.com")
-	b, _ := valueobject.NewEmailAddress("joe@blogs.com")
-
-	fmt.Println(a.Equals(b))
-	// Output: true
-}
-
 func TestShouldCompareTwoEmailAddresssAsNotEqual(t *testing.T) {
 	a, _ := valueobject.NewEmailAddress("joe@blogs.com")
 	b, _ := valueobject.NewEmailAddress("mandy@blogs.com")
@@ -57,9 +55,9 @@ func TestShouldCompareTwoEmailAddresssAsNotEqual(t *testing.T) {
 
 func TestShouldNotBeEqualIfNotEmailAddress(t *testing.T) {
 	var notEmailAddress NotEmailAddress
-	numeral, _ := valueobject.NewEmailAddress("joe@blogs.com")
+	email, _ := valueobject.NewEmailAddress("joe@blogs.com")
 
-	if numeral.Equals(notEmailAddress) == true {
+	if email.Equals(notEmailAddress) == true {
 		t.Fatal("Different value object types can not be equal")
 	}
 }

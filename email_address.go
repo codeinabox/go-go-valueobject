@@ -10,11 +10,12 @@ var (
 	ErrInvalidEmailAddress = errors.New("Not a valid email address")
 )
 
+// EmailAddress for email address value objects
 type EmailAddress struct {
 	value string
 }
 
-// NewEmailAddress creates a new numeral
+// NewEmailAddress creates a new email address
 func NewEmailAddress(v interface{}) (EmailAddress, error) {
 	var n EmailAddress
 	switch t := v.(type) {

@@ -59,7 +59,7 @@ func TestConvertIntegerToRomanNumeral(t *testing.T) {
 func TestShouldntAcceptInvalidString(t *testing.T) {
 	_, err := valueobject.NewRomanNumeral("B")
 	if err == nil {
-		t.Fatal("We expected an error with A")
+		t.Fatal("We expected an error")
 	}
 }
 

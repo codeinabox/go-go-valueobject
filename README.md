@@ -56,3 +56,7 @@ Implementing your own value object is easy, it just needs to adhere to the `Valu
 		return ok && n.value == otherIdentifier.value
 	}
 ```
+
+### Reference
+
+``godoc`` or http://godoc.org/github.com/codeinabox/go-go-valueobject

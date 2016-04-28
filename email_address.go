@@ -5,11 +5,12 @@ import (
 	"regexp"
 )
 
-// Errors block
+// EmailAddress errors
 var (
 	ErrInvalidEmailAddress = errors.New("Not a valid email address")
 )
 
+// EmailAddress represents a valid email address
 type EmailAddress struct {
 	value string
 }
@@ -26,12 +27,12 @@ func NewEmailAddress(email string) (EmailAddress, error) {
 	return n, nil
 }
 
-// String returns string representation
+// String returns string representation of the email address
 func (n EmailAddress) String() string {
 	return n.value
 }
 
-// Equals checks that two values are the same
+// Equals checks that two email addresses are the same
 func (n EmailAddress) Equals(value Value) bool {
 	otherEmailAddress, ok := value.(EmailAddress)
 	return ok && n.value == otherEmailAddress.value

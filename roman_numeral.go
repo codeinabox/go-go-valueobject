@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Errors block
+// RomanNumeral errors
 var (
 	ErrInvalidRomanNumeral = errors.New("Not a valid numeral")
 	ErrNegativeValue       = errors.New("can not represent negative numbers")
@@ -56,12 +56,12 @@ func NewRomanNumeral(v interface{}) (RomanNumeral, error) {
 	return n, nil
 }
 
-// String returns string representation
+// String returns string representation of the numeral
 func (n RomanNumeral) String() string {
 	return n.value
 }
 
-// Equals checks that two values are the same
+// Equals checks that two numerals are the same
 func (n RomanNumeral) Equals(value Value) bool {
 	otherRomanNumeral, ok := value.(RomanNumeral)
 	return ok && n.value == otherRomanNumeral.value

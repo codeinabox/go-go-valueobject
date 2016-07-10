@@ -19,7 +19,7 @@ func (n NotEmailAddress) Equals(value valueobject.Value) bool {
 	return false
 }
 
-func ExampleString_EmailAddress() {
+func ExampleEmailAddress_String() {
 	numeral, _ := valueobject.NewEmailAddress("joe@blogs.com")
 	fmt.Println(numeral.String())
 	// Output: joe@blogs.com
@@ -32,7 +32,7 @@ func TestShouldntAcceptInvalidEmailAddress(t *testing.T) {
 	}
 }
 
-func ExampleEquals_EmailAddress() {
+func ExampleEmailAddress_Equals() {
 	a, _ := valueobject.NewEmailAddress("joe@blogs.com")
 	b, _ := valueobject.NewEmailAddress("joe@blogs.com")
 

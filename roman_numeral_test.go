@@ -38,7 +38,7 @@ func (n NotRomanNumeral) Equals(value valueobject.Value) bool {
 	return false
 }
 
-func ExampleString_RomanNumeral() {
+func ExampleRomanNumeral_String() {
 	numeral, _ := valueobject.NewRomanNumeral(5)
 	fmt.Println(numeral.String())
 	// Output: V
@@ -63,7 +63,7 @@ func TestShouldntAcceptInvalidString(t *testing.T) {
 	}
 }
 
-func ExampleEquals_RomanNumeral() {
+func ExampleRomanNumeral_Equals() {
 	a, _ := valueobject.NewRomanNumeral(5)
 	b, _ := valueobject.NewRomanNumeral("V")
 
